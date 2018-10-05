@@ -28,6 +28,12 @@ class AdminMenuModifier {
         }
     }    
 
+    public static function remove_media_menu ( $capability ) {
+        if ( current_user_can( $capability ) ) {
+            remove_menu_page( 'upload.php' );
+        }
+    }    
+
     public static function remove_envira_menu ( $capability ) {
         if ( current_user_can( $capability ) ) {
             remove_menu_page( 'edit.php?post_type=envira' );

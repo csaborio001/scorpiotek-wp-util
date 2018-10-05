@@ -8,6 +8,11 @@
 	Text Domain: scorpiotek.com
 */
 
+// exit if file is called directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 require_once ( 'include/scorpiotek-log-util.php' );
 require_once ( 'include/scorpiotek-menu-util.php' );
 
