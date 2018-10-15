@@ -13,14 +13,20 @@ class AdminMenuModifier {
         'admin_menu_main_posts' => 'edit.php',
         'admin_menu_main_pages' => 'edit.php?post_type=page',
         'admin_menu_main_comments' => 'edit-comments.php',
+        'admin_menu_main_users' => 'users.php',
         'admin_menu_main_tools' => 'tools.php',
+        'admin_menu_main_settings' => 'options-general.php',
+        'admin_menu_main_custom_fields' => 'edit.php?post_type=acf-field-group',
         'admin_menu_main_media' => 'upload.php',
         'admin_menu_main_envira' => 'edit.php?post_type=envira',
-        'admin_menu_main_gravity_forms' => 'gf_entries',
+        'admin_menu_main_gravity_forms' => 'gf_edit_forms',
         'wp_admin_bar_plus_menu' => 'new-content',
         'wp_admin_bar_sidebar_comments' => 'comments',
         'wp_admin_bar_logo' => 'wp-logo',
-        'wp_admin_bar_view_posts' => 'archive'
+        'wp_admin_bar_view_posts' => 'archive',
+        'woocommerce' => 'woocommerce',
+        'woocommerce_edit_products' => 'edit.php?post_type=product',
+        'cerber' => 'cerber-security'
     );
 
 /**
