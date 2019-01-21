@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-require_once ( 'include/scorpiotek-log-util.php' );
-require_once ( 'include/scorpiotek-menu-util.php' );
+require_once( 'include/scorpiotek-log-util.php' );
+require_once( 'include/scorpiotek-menu-util.php' );
+require_once( 'include/scorpiotek-posts-util.php' );
+require_once( 'include/scorpiotek-dynamicdashboard.php' );
 
 
