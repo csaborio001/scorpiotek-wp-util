@@ -42,7 +42,11 @@ what will be removed. These values are defined by the labels inside the menu_opt
 
 ## Version History 
 
-1.0 - October 13, 2018
+### 1.0.1 - January 21, 2019
+
+* Added dynamic dashboard code, cleaned up code a bit.
+
+### 1.0 - October 13, 2018
 
 * Initial Release
 * Refactored AdminMenuModifier code to use less functions and allow the user to define items to be removed by using parameters
