@@ -15,10 +15,12 @@ class PostUtilities {
     }
 
     static function get_excerpt_max_words( $text_to_summarize, $desired_word_length ) {
-        // Put all words in an array
-        $text_to_summarize_array = explode(' ' , $text_to_summarize);
-        // Create a string that contains the specified number of words
-        return implode(' ', array_splice( $text_to_summarize_array, 0, $desired_word_length ));  
+        // Convert each word into an array of words.
+        $text_to_summarize_array = explode( ' ' , $text_to_summarize);
+        if ( count( $text_to_summarize_array )  < $desired_word_length ) return $text_to_summarize;
+        // Remove everything from the array after index of $desired_word_length, then convert
+        // back to string by concatenating each array cell with a blank space.
+        return implode( ' ', array_splice( $text_to_summarize_array, 0, $desired_word_length ));  
     }
 
      static function seo_friendly_url( $string ){
