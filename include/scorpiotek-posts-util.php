@@ -4,7 +4,7 @@ namespace ScorpioTek\WordPress\Util;
 
 class PostUtilities {
 
-    function get_excerpt( $count ){
+    static function get_excerpt( $count ){
         $permalink = get_permalink($post->ID);
         $excerpt = get_the_content();
         $excerpt = strip_tags($excerpt);
@@ -34,6 +34,7 @@ class PostUtilities {
     }    
 
     static function get_image_from_id_or_array( $image_source ) {
+        wp_die('yes');
         /*
         * There's a bug that makes the $image_source return the attachment ID instead of the image object.
         * In order to get around this we check to see if it is an array and get the URL field of the image object.
@@ -47,5 +48,53 @@ class PostUtilities {
          }           
     }
 
+     /**
+  * @summary Displays featured image in various ways
+  *
+  * @description Tries to get the featured image of a post by using various methods. It tries to get the default features image, tries to get a predefined field of a content type.
+  *
+  * @author Christian Saborio <csaborio@scorpiotek.com>
+  *
+  * @param string $field name the name if the field type that holds the image information
+  *
+  * @return none
+  */
+  
+  static function get_featured_image( $post, $dimensions = array(), $field_name = '', $default_image_path = '' )  {
+    
+    $thumbnail_id = has_post_thumbnail( $post->ID ) ? get_post_thumbnail_id( $post->ID ) : -1;
+
+    if ( $thumbnail_id == -1 && !empty( $field_name ) ) {
+        $thumbnail_id = get_field( $field_name, $post->ID );
+    }
+    
+    if ( !empty( $thumbnail_id ) ) {
+        $image_dimensions = empty( $dimensions ) ? 'medium' : $dimensions;
+        echo wp_get_attachment_image( $thumbnail_id, $image_dimensions, false, array( 'alt' => $post->title ) );
+    }
+    else {
+        echo ('<img src="' . $default_image_path . '" alt="' . $post->title . '" />' );
+    }
+  }
+
+  static function get_custom_categories( $post_id, $taxonomy ) {
+    $categories = get_the_terms( $post_id, $taxonomy );
+    $taxonomies = '';
+    foreach ( $categories as $term ) {
+        // Need to figure if this is the last item in the list or if this is a list that 
+        // only has one element in it. 
+        $last_item = ( ( $categories[ count( $categories ) - 1 ] )->name == $term->name ) ||
+        ( count( $categories) == 1 )  ? true : false;
+        // If it is not the last element, append comma at the end, otherwise nothing.
+        $taxonomies = $term->name . ( $last_item ? '' : ', ' );
+    }
+    return $taxonomies;
+  }
+
+  static function the_custom_categories( $post_id, $taxonomy ) {
+    echo get_custom_categories( $post_id, $taxonomy );
+  }
 
 }
+
+        

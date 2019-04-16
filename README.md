@@ -20,7 +20,7 @@ the class.
 
 * Attach the function that will modify the menus and call the respective function:
 
-        if ( class_exists (AdminMenuModifier::class) ) {
+        if ( class_exists ( AdminMenuModifier::class) ) {
                 $myAdminMenuModifier = new AdminMenuModifier();
         ...
 
@@ -56,6 +56,15 @@ what will be removed. These values are defined by the labels inside the menu_opt
 
 
 ## Version History 
+
+### 1.0.1.3
+
+* Fixed issue that would cause error when removing from sidebar menu b/c no action was attached to it.
+
+
+### 1.0.1.2
+
+* Added get_featured_image functionality.
 
 ### 1.0.1.1
 

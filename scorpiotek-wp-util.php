@@ -4,7 +4,7 @@
     Plugin Name: ScorpioTek WordPress Utilities
     Description: Contains utility classes to assist with WordPress theme development
     @since  1.0
-    Version: 1.0.1.1
+    Version: 1.0.1.2
 	Text Domain: scorpiotek.com
 */
 

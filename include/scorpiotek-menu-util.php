@@ -26,7 +26,8 @@ class AdminMenuModifier {
         'wp_admin_bar_view_posts' => 'archive',
         'woocommerce' => 'woocommerce',
         'woocommerce_edit_products' => 'edit.php?post_type=product',
-        'cerber' => 'cerber-security'
+        'cerber' => 'cerber-security',
+        'stackable' => 'stackable',
     );
 
 /**
@@ -42,7 +43,8 @@ class AdminMenuModifier {
   * @return void
   */
   
-    public function remove_menu_from_admin_sidebar ( $menu_name, $capabilities ) {
+public function remove_menu_from_admin_sidebar ( $menu_name, $capabilities ) {
+    add_action( 'admin_menu', function() use ( $menu_name, $capabilities ) {
         if ( array_key_exists( $menu_name, $this->get_menu_option_ids() ) ) {
             if ( is_array( $capabilities) ) {
                 foreach( $capabilities as $capability ) {
@@ -52,7 +54,8 @@ class AdminMenuModifier {
                 }
             }
         }
-    }
+    });
+}
  
 /**
   * @summary Removes elements from the wp admin bar (the horizonal one)
@@ -97,7 +100,7 @@ class AdminMenuModifier {
   */
   
     public function replace_howdy_from_admin_bar( $new_greeting, $capabilities ) {
-        add_action( 'wp_before_admin_bar_render', function( ) use ( $new_greeting, $capabilities ) {
+        add_action( 'wp_before_admin_bar_render', function() use ( $new_greeting, $capabilities ) {
             if ( is_array( $capabilities) ) {
                 foreach( $capabilities as $capability ) {            
                     if ( current_user_can( $capability ) ) {
