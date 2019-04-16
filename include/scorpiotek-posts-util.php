@@ -34,7 +34,6 @@ class PostUtilities {
     }    
 
     static function get_image_from_id_or_array( $image_source ) {
-        wp_die('yes');
         /*
         * There's a bug that makes the $image_source return the attachment ID instead of the image object.
         * In order to get around this we check to see if it is an array and get the URL field of the image object.
