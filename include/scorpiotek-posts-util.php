@@ -60,19 +60,33 @@ class PostUtilities {
   */
   
   static function get_featured_image( $post, $dimensions = array(), $field_name = '', $default_image_path = '' )  {
-    
+    // Set the dimensions, default to medium if empty.
+    $image_dimensions = empty( $dimensions ) ? 'medium' : $dimensions;
+    // Figure out if the post has a featured image.
     $thumbnail_id = has_post_thumbnail( $post->ID ) ? get_post_thumbnail_id( $post->ID ) : -1;
-
+    // If it doesn't have a featured image, try and get the ACF filed associated with the post image.
     if ( $thumbnail_id == -1 && !empty( $field_name ) ) {
         $thumbnail_id = get_field( $field_name, $post->ID );
     }
-    
-    if ( !empty( $thumbnail_id ) ) {
-        $image_dimensions = empty( $dimensions ) ? 'medium' : $dimensions;
-        echo wp_get_attachment_image( $thumbnail_id, $image_dimensions, false, array( 'alt' => $post->title ) );
+    // See of we can get an image from the thumbnail id provided.
+    $image_url = wp_get_attachment_image( $thumbnail_id, $image_dimensions, false, array( 'alt' => $post->post_title ) );
+    // If image is a valid URL print that.
+    if ( !empty( $image_url ) ) {
+        echo $image_url;
     }
-    else {
-        echo ('<img src="' . $default_image_path . '" alt="' . $post->title . '" />' );
+    else { // Otherwise print default image.
+        
+        if ( is_array( $dimensions ) && count( $dimensions ) === 2 ) {
+            echo sprintf('<img src="%1$s" alt="%2$s" width="%3$s" height="%4$s" />',
+            $default_image_path,
+            $post->post_title,
+            $dimensions[0],
+            $dimensions[1]
+            );
+        }
+        else {
+            echo ('<img src="' . $default_image_path . '" alt="' . $post->post_title . '" />' );
+        }
     }
   }
 

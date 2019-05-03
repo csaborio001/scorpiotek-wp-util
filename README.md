@@ -57,10 +57,13 @@ what will be removed. These values are defined by the labels inside the menu_opt
 
 ## Version History 
 
+### 1.0.1.4
+
+* Fixed logic of featured image to print better default featured image.
+
 ### 1.0.1.3
 
 * Fixed issue that would cause error when removing from sidebar menu b/c no action was attached to it.
-
 
 ### 1.0.1.2
 
