@@ -28,6 +28,7 @@ class AdminMenuModifier {
         'woocommerce_edit_products' => 'edit.php?post_type=product',
         'cerber' => 'cerber-security',
         'stackable' => 'stackable',
+        'machete' => 'machete',
     );
 
 /**
@@ -52,6 +53,36 @@ public function remove_menu_from_admin_sidebar ( $menu_name, $capabilities ) {
                         remove_menu_page( $this->get_menu_option_ids()[$menu_name] );
                     }
                 }
+            }
+        }
+    });
+}
+
+/**
+  * @summary Hides CSS by ID from the WordPress admin area
+  *
+  * @description Some elements are stubborn and will not be removed from the admin
+  * area by using remove_menu_page, so this function was created to use jQuery to hide those
+  * elements from the user.
+  *
+  * @author Christian Saborio <csaborio@scorpiotek.com>
+  *
+  * @param string $menu_name the CSS id to be removed. 
+  * @param array $capabilities an array that specifies one ore more capability to remove the menu item for
+  * @return void
+  */
+  
+public function remove_menu_element_by_id ( $css_id_list, $capabilities ) {
+    add_action( 'admin_footer', function() use ( $css_id_list, $capabilities ) { 
+        foreach( $capabilities as $capability ) {
+            if ( current_user_can( $capability ) ) {
+                echo ( '<script type="text/javascript">');
+                foreach ( $css_id_list as $css_id ) {
+                    echo sprintf( 'jQuery("#%1$s").hide()',
+                    $css_id );                    
+                }
+                echo ( '</script>');
+
             }
         }
     });

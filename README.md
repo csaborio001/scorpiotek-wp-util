@@ -57,6 +57,10 @@ what will be removed. These values are defined by the labels inside the menu_opt
 
 ## Version History 
 
+### 1.0.1.5
+
+* Added a function that hides an element by passing its CSS ID.
+
 ### 1.0.1.4
 
 * Fixed logic of featured image to print better default featured image.
