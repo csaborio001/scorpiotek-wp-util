@@ -55,6 +55,13 @@ public function remove_menu_from_admin_sidebar ( $menu_name, $capabilities ) {
                 }
             }
         }
+        else {
+            if ( is_array( $capabilities) ) {
+                foreach( $capabilities as $capability ) {
+                    remove_menu_page( $menu_name );
+                }
+            }
+        }
     });
 }
 
