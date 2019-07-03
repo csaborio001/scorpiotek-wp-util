@@ -57,6 +57,10 @@ what will be removed. These values are defined by the labels inside the menu_opt
 
 ## Version History 
 
+### 1.0.1.7
+
+* Added function to convert Spanish date to a format that DateTime could use.
+
 ### 1.0.1.6
 
 * Added function to support removing menu by just specifying menu name (fallback in case the predefined names are not found)
