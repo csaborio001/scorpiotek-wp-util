@@ -4,7 +4,7 @@
     Plugin Name: ScorpioTek WordPress Utilities
     Description: Contains utility classes to assist with WordPress theme development
     @since  1.0
-    Version: 1.0.1.7
+    Version: 1.0.1.8
 	Text Domain: scorpiotek.com
 */
 
@@ -47,6 +47,13 @@ if ( file_exists( __DIR__ . '/include/scorpiotek-date-util.php' ) ) {
 }
 else {
     error_log( 'ScorpioTek-WP-Util: Error loading file scorpiotek-date-util.php' );
+}
+
+if ( file_exists( __DIR__ . '/include/scorpiotek-form-util.php' ) ) {
+    require_once( 'include/scorpiotek-form-util.php' );
+}
+else {
+    error_log( 'ScorpioTek-WP-Util: Error loading file scorpiotek-form-util.php' );
 }
 
 
