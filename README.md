@@ -38,3 +38,4 @@ A library that contains classes to carry out WordPress related tasks.
     ### 0.0.1
 
     * Changed the library to be a composer package instead of a WordPress plugin.
+    * Included first version of class AdminMenuModifier
