@@ -1,0 +1,30 @@
+{
+    "name": "scorpiotek/wp-util",
+    "description": "A package of classes for WordPress related tasks.",
+    "type": "library",
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "8",
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpdocumentor/reflection-docblock": "2.*"
+    },
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Christian Saborio",
+            "email": "csaborio@scorpiotek.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ScorpioTek\\WordPress\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ScorpioTek\\WordPress\\Tests\\": "tests/"
+        }
+    }    
+}
