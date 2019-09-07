@@ -13,12 +13,12 @@ class AdminMenuModifier {
     public function __construct() {
         $json_data = file_get_contents( dirname( __DIR__, 1 ) . '/config/menu-slugs.json' );
         if ( $json_data === false ) {
-            write_log( __( 'Could not load the json file' ) );
+            error_log ( __( 'Could not load the json file' ) );
             return false;
         }
         $json_decoded_data = json_decode( $json_data, true );
         if ( $json_decoded_data === false || $json_decoded_data === null) {
-            write_log( __( 'Could not get contents of json file' ) );
+            error_log ( __( 'Could not get contents of json file' ) );
             return false;
         }
         // Load the PHP array representation of the JSON file into memory.
@@ -160,13 +160,6 @@ class AdminMenuModifier {
                  add_submenu_page( $parent_slug, $page->post_title, $page->post_title, 'editor', 'post.php?post=' . $page->ID . '&action=edit' );
              }
              if ( $displayAddNewSubMenu ) add_submenu_page( $parent_slug, 'Add New Page', 'Add New Page', 'editor', $parent_slug );
-
-
-
-
-
-
-
 
         });
     }
