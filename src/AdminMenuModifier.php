@@ -186,5 +186,4 @@ class AdminMenuModifier {
     public function getMenuSlugArray() {
         return $this->menuSlugArray;
     }
-
 }
