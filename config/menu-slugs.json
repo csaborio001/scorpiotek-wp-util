@@ -23,6 +23,6 @@
         "members" : "edit.php?post_type=member",
         "partners" : "edit.php?post_type=partner",
         "wpbakery" : "vc-welcome",
-        "stackable" : "stackable"
+        "envato" : "envato-elements"
     }
 }

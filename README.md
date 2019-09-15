@@ -35,6 +35,10 @@ A library that contains classes to carry out WordPress related tasks.
 
     ## Version History
 
+    ### 0.0.2
+
+    * Changed old references to old error function to simply use error_log.
+    
     ### 0.0.1
 
     * Changed the library to be a composer package instead of a WordPress plugin.
