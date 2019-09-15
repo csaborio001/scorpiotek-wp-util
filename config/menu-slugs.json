@@ -22,6 +22,7 @@
         "galleries" : "edit.php?post_type=gallery",
         "members" : "edit.php?post_type=member",
         "partners" : "edit.php?post_type=partner",
-        "wpbakery" : "vc-welcome"
+        "wpbakery" : "vc-welcome",
+        "stackable" : "stackable"
     }
 }
