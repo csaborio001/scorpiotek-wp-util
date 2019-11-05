@@ -111,7 +111,7 @@ class AdminMenuModifier {
 		add_action(
 			'admin_menu',
 			function() use ( $menu_name, $target_roles ) {
-				$this->remove_menu_item_for_role_callback( $menu_name, $target_roles );
+				$this->remove_menu_item_for_role_callback( $menu_name );
 			}
 		);
 	}
@@ -124,9 +124,11 @@ class AdminMenuModifier {
 	 * @param string $menu_name - the name of the menu to remove.
 	 * @param array  $target_roles - the list containing the roles to look for.
 	 */
-	public function remove_menu_item_for_role_callback( $menu_name, $target_roles ) {
+	public function remove_menu_item_for_role_callback( $menu_name ) {
 		if ( array_key_exists( $menu_name, $this->get_menu_slug_array() ) ) {
 			remove_menu_page( $this->get_menu_slug_array()[ $menu_name ] );
+		} else {
+			remove_menu_page( $menu_name );
 		}
 	}
 
