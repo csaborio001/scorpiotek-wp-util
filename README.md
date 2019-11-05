@@ -4,12 +4,12 @@
 
 A library that contains classes to carry out WordPress related tasks.
 
-## Installation
+## Recommended Installation
 
-1. Create a *lib* folder in your themes directory.
+1. Create a composer file inside the directory you are creating with this as a starting point:
 2. CD to that directory
 3. Create a file called composer.json and use this JSON as a starting point:
-
+```
     {
     "name": "PROJECT_NAME",
     "version": "1.0.0",
@@ -24,16 +24,21 @@ A library that contains classes to carry out WordPress related tasks.
             "scorpiotek/wp-util": "dev-master"
         }
     }
-
+```
 4. Save the file.
 5. Run composer update
 6. From your theme's functions.php file, include the file:
 
-    /lib/vendor/scorpiotek/autoload.php
+    /vendor/scorpiotek/autoload.php
 
     ## Classes
 
     ## Version History
+
+    ### 0.1.0
+
+    * Changed everything to use roles instead of capabilities.
+    * Rewrote the whole logic and used a code sniffer.
 
     ### 0.0.2
 
